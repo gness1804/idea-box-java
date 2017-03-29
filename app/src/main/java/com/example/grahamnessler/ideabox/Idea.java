@@ -19,6 +19,22 @@ public class Idea {
         count++;
     }
 
+    long getId (){
+        return id;
+    }
+
+    String getName () {
+        return name;
+    }
+
+    String getBody () {
+        return body;
+    }
+
+    String getQuality () {
+        return quality;
+    }
+
     void setName (String name) {
         this.name = name;
     }

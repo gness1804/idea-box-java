@@ -2,6 +2,7 @@ package com.example.grahamnessler.ideabox;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -9,5 +10,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        createIdea();
+    }
+
+    void createIdea() {
+        Idea idea = new Idea("Hello", "I am the idea", "Swill");
+        String name = idea.getName();
+        Log.d("The name", name);
     }
 }
