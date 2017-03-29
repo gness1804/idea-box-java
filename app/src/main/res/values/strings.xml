@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">IdeaBox</string>
+    <string name="idea_name">Enter Idea Name.</string>
 </resources>
