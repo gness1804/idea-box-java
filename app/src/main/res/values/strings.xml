@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">IdeaBox</string>
     <string name="idea_name">Enter Idea Name.</string>
+    <string name="idea_body">Enter Idea Body.</string>
 </resources>
