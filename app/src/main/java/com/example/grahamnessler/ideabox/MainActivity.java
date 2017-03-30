@@ -45,8 +45,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     void appendIdeaToPage () {
         //loop through ideas and put them into their own boxes
         for (int i = 0; i < ideas.size(); i++) {
-            String idea1 = ideas.get(i).getName();
-            Log.d("the idea", idea1);
+//            String idea1 = ideas.get(i).getName();
+            Idea theIdea = ideas.get(i);
+            //do stuff with this idea; namely, put its data into a box
         }
     }
 
