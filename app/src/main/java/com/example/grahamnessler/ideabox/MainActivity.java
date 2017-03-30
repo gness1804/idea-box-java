@@ -11,7 +11,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    private List<Idea> ideas = new ArrayList<Idea>();
     private Spinner spinner;
     private Idea idea;
     private String[] choices = {"Swill", "Plausible", "Genius"};
@@ -68,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     void createIdea() {
         idea = new Idea(chosenName, chosenBody, chosenQuality);
-
+        ideas.add(idea);
+        //iterate through ideas...
     }
 }
