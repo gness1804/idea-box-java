@@ -12,6 +12,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Spinner spinner;
     private Idea idea;
     private String[] choices = {"Swill", "Plausible", "Genius"};
+    private String chosenName;
+    private String chosenBody;
+    private String chosenQuality;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +26,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
         String choice = choices[pos];
-        Log.d("choice", choice);
+        chosenQuality = choice;
     }
 
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
+    }
+
+    public void selectIdea (View view) {
+        Log.d("test", "button was clicked");
     }
 
     void createSpinner () {
@@ -40,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     void createIdea() {
-        idea = new Idea("Hello", "I am the idea", "Swill");
+        idea = new Idea(chosenName, chosenBody, chosenQuality);
 
     }
 }
