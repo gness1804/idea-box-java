@@ -42,6 +42,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
+    void appendIdeaToPage () {
+        //loop through ideas and put them into their own boxes
+        for (int i = 0; i < ideas.size(); i++) {
+            String idea1 = ideas.get(i).getName();
+            Log.d("the idea", idea1);
+        }
+    }
+
     public void selectIdea (View view) {
         EditText name = (EditText) findViewById(R.id.ideaNameInput);
         chosenName = name.getText().toString();
@@ -74,9 +82,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     void createIdea() {
         idea = new Idea(chosenName, chosenBody, chosenQuality);
         ideas.add(idea);
-        for (int i = 0; i < ideas.size(); i++) {
-            String idea1 = ideas.get(i).getName();
-            Log.d("the idea", idea1);
-        }
+        appendIdeaToPage();
     }
 }
