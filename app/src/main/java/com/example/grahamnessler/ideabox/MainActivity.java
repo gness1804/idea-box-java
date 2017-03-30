@@ -74,6 +74,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     void createIdea() {
         idea = new Idea(chosenName, chosenBody, chosenQuality);
         ideas.add(idea);
-        //iterate through ideas...
+        for (int i = 0; i < ideas.size(); i++) {
+            String idea1 = ideas.get(i).getName();
+            Log.d("the idea", idea1);
+        }
     }
 }
