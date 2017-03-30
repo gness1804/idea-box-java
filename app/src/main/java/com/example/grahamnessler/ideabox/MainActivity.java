@@ -10,6 +10,8 @@ import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private Spinner spinner;
+    private Idea idea;
+    private String[] choices = {"Swill", "Plausible", "Genius"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,13 +22,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
-        switch (pos) {
-            case 0:
-                Log.d("Message", "First item selected");
-                break;
-            default:
-                Log.d("Message", "Nothing valid selected");
-        }
+        String choice = choices[pos];
+        Log.d("choice", choice);
     }
 
     public void onNothingSelected(AdapterView<?> parent) {
@@ -43,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     void createIdea() {
-        Idea idea = new Idea("Hello", "I am the idea", "Swill");
+        idea = new Idea("Hello", "I am the idea", "Swill");
 
     }
 }
