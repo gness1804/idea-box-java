@@ -17,20 +17,21 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    private List<Idea> ideas = new ArrayList<Idea>();
+    private ArrayList<Idea> ideas = new ArrayList<Idea>();
     private Spinner spinner;
     private Idea idea;
     private String[] choices = {"Swill", "Plausible", "Genius"};
     private String chosenName;
     private String chosenBody;
     private String chosenQuality;
-    private String[] testArr = {"foo", "bar", "baz"};
+    private IdeasAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         createSpinner();
+        setAdapterForIdeas();
     }
 
     public void onItemSelected(AdapterView<?> parent, View view,
@@ -44,19 +45,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
+    void setAdapterForIdeas () {
+        adapter = new IdeasAdapter(this, ideas);
+        ListView listView = (ListView) findViewById(R.id.ideasList);
+        listView.setAdapter(adapter);
+    }
+
 
     void appendIdeaToPage () {
-        //loop through ideas and put them into their own boxes
-//        for (int i = 0; i < ideas.size(); i++) {
-////            String ideaName = ideas.get(i).getName();
-////            Log.d("idea name", ideaName);
-//            Idea theIdea = ideas.get(i);
-            
-//        }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, testArr);
-        ListView ideasList = (ListView) findViewById(R.id.ideasList);
-        ideasList.setAdapter(adapter);
+
     }
 
     public void selectIdea (View view) {
@@ -90,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     void createIdea() {
         idea = new Idea(chosenName, chosenBody, chosenQuality);
-        ideas.add(idea);
-        appendIdeaToPage();
+        adapter.add(idea);
+
     }
 }
