@@ -34,6 +34,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setAdapterForIdeas();
     }
 
+    void resetInputFields() {
+        EditText name = (EditText) findViewById(R.id.ideaNameInput);
+        EditText body = (EditText) findViewById(R.id.ideaBodyInput);
+        name.setText("");
+        body.setText("");
+        name.setEnabled(false);
+        name.setEnabled(true);
+        body.setEnabled(false);
+        body.setEnabled(true);
+    }
+
+    public void clearIdeas (View view) {
+        adapter.clear();
+    }
+
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
         String choice = choices[pos];
@@ -81,8 +96,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinner.setOnItemSelectedListener(this);
     }
 
-    void createIdea() {
+    void createIdea () {
         idea = new Idea(chosenName, chosenBody, chosenQuality);
         adapter.add(idea);
+        resetInputFields();
     }
 }
