@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private String chosenName;
     private String chosenBody;
     private String chosenQuality;
+    private String[] testArr = {"foo", "bar", "baz"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +44,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
+
     void appendIdeaToPage () {
         //loop through ideas and put them into their own boxes
-        for (int i = 0; i < ideas.size(); i++) {
-//            String idea1 = ideas.get(i).getName();
-            Idea theIdea = ideas.get(i);
-            //do stuff with this idea; namely, put its data into a box
-        }
+//        for (int i = 0; i < ideas.size(); i++) {
+////            String ideaName = ideas.get(i).getName();
+////            Log.d("idea name", ideaName);
+//            Idea theIdea = ideas.get(i);
+            
+//        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, testArr);
+        ListView ideasList = (ListView) findViewById(R.id.ideasList);
+        ideasList.setAdapter(adapter);
     }
 
     public void selectIdea (View view) {
