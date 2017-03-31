@@ -52,10 +52,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
 
-    void appendIdeaToPage () {
-
-    }
-
     public void selectIdea (View view) {
         EditText name = (EditText) findViewById(R.id.ideaNameInput);
         chosenName = name.getText().toString();
@@ -88,6 +84,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     void createIdea() {
         idea = new Idea(chosenName, chosenBody, chosenQuality);
         adapter.add(idea);
-
     }
 }
