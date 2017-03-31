@@ -31,9 +31,12 @@ public class IdeasAdapter extends ArrayAdapter<Idea> {
         TextView ideaBodyLine = (TextView) convertView.findViewById(R.id.ideaBodyLine);
         TextView ideaQualityLine = (TextView) convertView.findViewById(R.id.ideaQualityLine);
         // Populate the data into the template view using the data object
-        ideaNameLine.setText(idea.name);
-        ideaBodyLine.setText(idea.body);
-        ideaQualityLine.setText(idea.quality);
+        String nameString = "Name: " + idea.name;
+        String bodyString = "The idea: " + idea.body;
+        String qualityString = "Quality: " + idea.quality;
+        ideaNameLine.setText(nameString);
+        ideaBodyLine.setText(bodyString);
+        ideaQualityLine.setText(qualityString);
         // Return the completed view to render on screen
         return convertView;
     }
