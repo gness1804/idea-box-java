@@ -46,7 +46,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void clearIdeas (View view) {
-        adapter.clear();
+        if  (ideas.size() > 0) {
+            adapter.clear();
+        } else {
+            Context context = getApplicationContext();
+            CharSequence text = "Error: nothing to clear.";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast.makeText(context, text, duration).show();
+        }
     }
 
     public void onItemSelected(AdapterView<?> parent, View view,
@@ -80,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void deleteIdea (View view) {
-        
+
     }
 
     void throwEmptyFieldError () {
