@@ -34,17 +34,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setAdapterForIdeas();
     }
 
-    void resetInputFields() {
-        EditText name = (EditText) findViewById(R.id.ideaNameInput);
-        EditText body = (EditText) findViewById(R.id.ideaBodyInput);
-        name.setText("");
-        body.setText("");
-        name.setEnabled(false);
-        name.setEnabled(true);
-        body.setEnabled(false);
-        body.setEnabled(true);
-    }
-
     public void clearIdeas (View view) {
         if  (ideas.size() > 0) {
             adapter.clear();
@@ -55,6 +44,25 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             Toast.makeText(context, text, duration).show();
         }
+    }
+
+    void createIdea () {
+        idea = new Idea(chosenName, chosenBody, chosenQuality);
+        adapter.add(idea);
+        resetInputFields();
+    }
+
+    void createSpinner () {
+        spinner = (Spinner) findViewById(R.id.ideaQualityInput);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.idea_quality_list, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+    }
+
+    public void deleteIdea (View view) {
+
     }
 
     public void onItemSelected(AdapterView<?> parent, View view,
@@ -68,12 +76,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
-    void setAdapterForIdeas () {
-        adapter = new IdeasAdapter(this, ideas);
-        ListView listView = (ListView) findViewById(R.id.ideasList);
-        listView.setAdapter(adapter);
+    void resetInputFields() {
+        EditText name = (EditText) findViewById(R.id.ideaNameInput);
+        EditText body = (EditText) findViewById(R.id.ideaBodyInput);
+        name.setText("");
+        body.setText("");
+        name.setEnabled(false);
+        name.setEnabled(true);
+        body.setEnabled(false);
+        body.setEnabled(true);
     }
-
 
     public void selectIdea (View view) {
         EditText name = (EditText) findViewById(R.id.ideaNameInput);
@@ -87,8 +99,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
     }
 
-    public void deleteIdea (View view) {
-
+    void setAdapterForIdeas () {
+        adapter = new IdeasAdapter(this, ideas);
+        ListView listView = (ListView) findViewById(R.id.ideasList);
+        listView.setAdapter(adapter);
     }
 
     void throwEmptyFieldError () {
@@ -99,18 +113,4 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Toast.makeText(context, text, duration).show();
     }
 
-    void createSpinner () {
-        spinner = (Spinner) findViewById(R.id.ideaQualityInput);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.idea_quality_list, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
-    }
-
-    void createIdea () {
-        idea = new Idea(chosenName, chosenBody, chosenQuality);
-        adapter.add(idea);
-        resetInputFields();
-    }
 }
