@@ -7,6 +7,7 @@
     <string name="quality_label">Quality:</string>
     <string name="clear_all_ideas">Clear All Ideas</string>
     <string name="clear_ideas">Clear Ideas</string>
+    <string name="delete_idea">Delete Idea</string>
     <string-array name="idea_quality_list">
         <item>Swill</item>
         <item>Plausible</item>

@@ -17,4 +17,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Quality" />
+
+    <Button
+        android:id="@+id/deleteIdeaButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="deleteIdea"
+        android:text="@string/delete_idea" />
 </LinearLayout>

@@ -79,6 +79,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
     }
 
+    public void deleteIdea (View view) {
+        
+    }
+
     void throwEmptyFieldError () {
         Context context = getApplicationContext();
         CharSequence text = "Oops! You must fill in all fields!";
